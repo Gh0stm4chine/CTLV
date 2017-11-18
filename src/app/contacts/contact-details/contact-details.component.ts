@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Contact } from '../contact';
 import { Telephone  } from '../telephone';
 import { ContactService } from '../contact.service';
+import { GitHubService } from '../../github.service';
+import { GitHubUser } from '../../githubuser'
 
 @Component({
   selector: 'contact-details',
@@ -15,6 +17,8 @@ export class ContactDetailsComponent {
 
   telephoneBis : void | Telephone;
 
+  gitHubName: GitHubUser;
+
   @Input()
   createHandler: Function;
   @Input()
@@ -22,12 +26,15 @@ export class ContactDetailsComponent {
   @Input()
   deleteHandler: Function;
 
-  constructor (private contactService: ContactService) {}
+  constructor (private contactService: ContactService, private gitHubService : GitHubService) {}
 
   ngOnInit() {
      this.contactService.getTelephone("123").then(number => {
         this.telephoneBis = number;
     });
+     this.gitHubService.getName("voilacti").then(name => {
+       this.gitHubName = name;
+     });
   }
 
   createContact(contact: Contact) {
