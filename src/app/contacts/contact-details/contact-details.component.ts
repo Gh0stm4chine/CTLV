@@ -24,6 +24,12 @@ export class ContactDetailsComponent {
 
   constructor (private contactService: ContactService) {}
 
+  ngOnInit() {
+     this.contactService.getTelephone(this.contact.phone.mobile).then(number => {
+        this.telephoneBis = number;
+    });
+  }
+
   createContact(contact: Contact) {
     this.contactService.createContact(contact).then((newContact: Contact) => {
       this.createHandler(newContact);
@@ -42,9 +48,4 @@ export class ContactDetailsComponent {
     });
   }
 
-  callAPI() : void {
-    this.contactService.getTelephone(this.contact.phone.mobile).then(number => {
-        this.telephoneBis = number;
-    });
-  }
 }

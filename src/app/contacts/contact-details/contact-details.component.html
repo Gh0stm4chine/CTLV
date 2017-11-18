@@ -27,8 +27,7 @@
     <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
   </form>
 
-  <button (click)="callAPI">Hello</button>
   <div>
-      <label for="contact-phone-work" >Hello {{telephoneBis.number}}</label>
+      <input type="text" [(ngModel)]="telephoneBis.number">
   </div>
 </div>
