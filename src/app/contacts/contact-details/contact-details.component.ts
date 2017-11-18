@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Contact } from '../contact';
+import { Telephone  } from '../telephone';
 import { ContactService } from '../contact.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { ContactService } from '../contact.service';
 export class ContactDetailsComponent {
   @Input()
   contact: Contact;
+
+  telephoneBis: void | Telephone;
 
   @Input()
   createHandler: Function;
@@ -36,6 +39,12 @@ export class ContactDetailsComponent {
   deleteContact(contactId: String): void {
     this.contactService.deleteContact(contactId).then((deletedContactId: String) => {
       this.deleteHandler(deletedContactId);
+    });
+  }
+
+  callAPI() : void {
+    this.contactService.getTelephone(this.contact.phone.mobile).then(number => {
+        this.telephoneBis = number;
     });
   }
 }

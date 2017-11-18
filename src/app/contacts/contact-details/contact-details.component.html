@@ -26,4 +26,9 @@
     <button class="btn btn-info" *ngIf="contact._id" (click)="updateContact(contact)">Update</button>
     <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
   </form>
+
+  <button (click)="callAPI">Hello</button>
+  <div>
+      <label for="contact-phone-work">{{telephoneBis.number}}</label>
+  </div>
 </div>

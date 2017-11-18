@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contact';
+import { Telephone } from './telephone';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ContactService {
     private contactsUrl = '/api/contacts';
+
+    private externalAPI = 'https://damp-taiga-12305.herokuapp.com/api/telephone';
 
     constructor (private http: Http) {}
 
@@ -42,6 +45,13 @@ export class ContactService {
                  .toPromise()
                  .then(response => response.json() as Contact)
                  .catch(this.handleError);
+    }
+
+    getTelephone(telephone : string): Promise<void | Telephone>{
+      return this.http.get(this.externalAPI + '/' + telephone)
+                  .toPromise()
+                  .then(response => response.json() as Telephone)
+                  .catch(this.handleError);
     }
 
     private handleError (error: any) {
