@@ -13,7 +13,7 @@ export class ContactDetailsComponent {
   @Input()
   contact: Contact;
 
-  telephoneBis: void | Telephone;
+  telephoneBis;
 
   @Input()
   createHandler: Function;
@@ -25,7 +25,7 @@ export class ContactDetailsComponent {
   constructor (private contactService: ContactService) {}
 
   ngOnInit() {
-     this.contactService.getTelephone(this.contact.phone.mobile).then(number => {
+     this.contactService.getTelephone("123").then(number => {
         this.telephoneBis = number;
     });
   }
