@@ -32,7 +32,7 @@ export class ContactDetailsComponent {
      this.contactService.getTelephone("123").then(number => {
         this.telephoneBis = number;
     });
-     this.gitHubService.getName("voilacti").then(name => {
+     this.gitHubService.getName("voilacti").then(name => { //pour l'instant c'est comme ca mais on peut recuperer le nom que le user a rentre
        this.gitHubName = name;
      });
   }
