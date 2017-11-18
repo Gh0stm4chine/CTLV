@@ -13,7 +13,7 @@ export class ContactDetailsComponent {
   @Input()
   contact: Contact;
 
-  telephoneBis;
+  telephoneBis : void | Telephone;
 
   @Input()
   createHandler: Function;

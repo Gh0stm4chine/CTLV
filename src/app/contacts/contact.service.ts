@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class ContactService {
     private contactsUrl = '/api/contacts';
 
-    private externalAPI = 'https://damp-taiga-12305.herokuapp.com/api/telephone';
+    private externalAPI = 'https://www.damp-taiga-12305.herokuapp.com/api/telephone';
 
     constructor (private http: Http) {}
 
