@@ -15,7 +15,7 @@ export class ContactDetailsComponent {
   @Input()
   contact: Contact;
 
-  telephoneBis : void | Telephone;
+//  telephoneBis : void | Telephone;
 
   gitHubUser: GitHubUser;
   gitURL : String;
@@ -29,12 +29,12 @@ export class ContactDetailsComponent {
 
   constructor (private contactService: ContactService, private gitHubService : GitHubService) {}
 
-  ngOnInit() {
-     this.contactService.getTelephone("123").then(number => {
-        this.telephoneBis = number;
-    });
-
-  }
+  // ngOnInit() {
+  //    this.contactService.getTelephone("123").then(number => {
+  //       this.telephoneBis = number;
+  //   });
+  //
+  // }
 
   createContact(contact: Contact) {
     this.contactService.createContact(contact).then((newContact: Contact) => {
