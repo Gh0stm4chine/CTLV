@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 import { ContactDetailsComponent } from '../contact-details/contact-details.component';
+import { GitHubService } from '../../github.service';
+import { GitHubUser } from '../../githubuser'
 
 @Component({
   selector: 'contact-list',
@@ -14,8 +16,11 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[]
   selectedContact: Contact
+  gitHubUser: GitHubUser;
+  gitURL : String;
+  gitNbRepos : number;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private gitHubService : GitHubService) { }
 
   ngOnInit() {
      this.contactService
@@ -81,4 +86,15 @@ export class ContactListComponent implements OnInit {
     }
     return this.contacts;
   }
+
+  fetchGitHubUrl(): void {
+    this.gitHubService.getName(this.contact.gitHubName).then(user => { //pour l'instant c'est comme ca mais on peut recuperer le nom que le user a rentre
+      //console.log("Ouss" + JSON.stringify(user) + user.name);
+      this.gitHubUser = user;
+      //console.log("Oussama" + this.gitHubUser.name);
+      this.gitURL = user.html_url;
+      this.gitNbRepos = user.public_repos;
+    });
+  }
+
 }
