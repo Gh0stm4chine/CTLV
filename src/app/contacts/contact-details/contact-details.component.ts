@@ -19,6 +19,7 @@ export class ContactDetailsComponent {
 
   gitHubUser: GitHubUser;
   gitURL : String;
+  gitNbRepos : Integer;
 
   @Input()
   createHandler: Function;
@@ -60,6 +61,7 @@ export class ContactDetailsComponent {
       this.gitHubUser = user;
       //console.log("Oussama" + this.gitHubUser.name);
       this.gitURL = user.html_url;
+      this.gitNbRepos = user.public_repos;
     });
   }
 
