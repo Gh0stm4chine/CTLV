@@ -15,7 +15,7 @@
       <input class="form-control" name="github-name" [(ngModel)]="contact.gitHubName" placeholder="git pseud"/>
       <button class="btn btn-primary" *ngIf="contact.gitHubName" (click)="fetchGitHubUrl()">Fetch</button>
       <label for="contact-phone-work">githubname </label>
-      <input type="text" [(ngModel)]="gitHubUser.html_url">
+      <input type="text" *ngIf="gitHubUser" [(ngModel)]="gitHubUser.html_url">
     </div>
     <div class="form-group">
       <label for="contact-email">Email</label>
