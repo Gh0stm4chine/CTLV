@@ -55,7 +55,10 @@ export class ContactDetailsComponent {
 
   fetchGitHubUrl(): void{
     this.gitHubService.getName(this.contact.gitHubName).then(user => { //pour l'instant c'est comme ca mais on peut recuperer le nom que le user a rentre
+      console.log("Ouss" + JSON.stringify(user) + user.name);
       this.gitHubUser = user;
+      console.log("Oussama" + this.gitHubUser.name);
+
     });
   }
 
