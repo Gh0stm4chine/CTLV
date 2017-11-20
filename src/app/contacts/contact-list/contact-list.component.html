@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
   <div class="col-md-5">
     <h2>Contacts</h2>
     <ul class="list-group">
@@ -18,14 +18,5 @@
       [updateHandler]="updateContact"
       [deleteHandler]="deleteContact">
     </contact-details>
-  </div>
-  <div >
-    <label for="github-name">>GitHub Name</label>
-    <input name="github-name" [(ngModel)]="contact.gitHubName" placeholder="git login"/>
-    <button class="btn btn-primary" *ngIf="contact.gitHubName" (click)="fetchGitHubUrl()">Fetch</button>
-    <label for="contact-github-name">url</label>
-    <input type="text" *ngIf="gitHubUser" [(ngModel)]="gitURL" readonly/>
-    <label for="contact-github-nBrepos">NbRepos</label>
-    <input type="text" *ngIf="gitHubUser" [(ngModel)]="gitNbRepos" readonly/>
   </div>
 </div>
