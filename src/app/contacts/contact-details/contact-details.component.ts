@@ -18,6 +18,7 @@ export class ContactDetailsComponent {
   telephoneBis : void | Telephone;
 
   gitHubUser: GitHubUser;
+  gitURL : String;
 
   @Input()
   createHandler: Function;
@@ -58,7 +59,7 @@ export class ContactDetailsComponent {
       console.log("Ouss" + JSON.stringify(user) + user.name);
       this.gitHubUser = user;
       console.log("Oussama" + this.gitHubUser.name);
-
+      this.gitURL = user.html_url;
     });
   }
 
