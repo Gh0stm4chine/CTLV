@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class ContactService {
     private contactsUrl = '/api/contacts';
 
-    private externalAPI = 'https://damp-taiga-12305.herokuapp.com/api/telephone';
+    //private externalAPI = 'https://damp-taiga-12305.herokuapp.com/api/telephone';
 
     constructor (private http: Http) {}
 
@@ -47,12 +47,12 @@ export class ContactService {
                  .catch(this.handleError);
     }
 
-    getTelephone(telephone : string): Promise<void | Telephone>{
-      return this.http.get(this.externalAPI + '/' + telephone)
-                  .toPromise()
-                  .then(response => response.json() as Telephone)
-                  .catch(this.handleError);
-    }
+    // getTelephone(telephone : string): Promise<void | Telephone>{
+    //   return this.http.get(this.externalAPI + '/' + telephone)
+    //               .toPromise()
+    //               .then(response => response.json() as Telephone)
+    //               .catch(this.handleError);
+    // }
 
     private handleError (error: any) {
       let errMsg = (error.message) ? error.message :
