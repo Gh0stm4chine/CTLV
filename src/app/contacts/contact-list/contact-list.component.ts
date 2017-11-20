@@ -45,7 +45,7 @@ export class ContactListComponent implements OnInit {
   }
 
   selectContact(contact: Contact) {
-    this.gitHubUser = 0
+    this.gitHubUser = null
     this.selectedContact = contact
   }
 
