@@ -15,7 +15,7 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[]
   selectedContact: Contact
 
-  constructor(private contactService: ContactService, private gitHubService : GitHubService) { }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
      this.contactService
@@ -40,7 +40,6 @@ export class ContactListComponent implements OnInit {
   }
 
   selectContact(contact: Contact) {
-    this.gitHubUser = null
     this.selectedContact = contact
   }
 
