@@ -19,7 +19,7 @@ export class ContactDetailsComponent {
 
   gitHubUser: GitHubUser;
   gitURL : String;
-  gitNbRepos : Integer;
+  gitNbRepos : number;
 
   @Input()
   createHandler: Function;
