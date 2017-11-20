@@ -17,7 +17,7 @@ export class ContactDetailsComponent {
 
   telephoneBis : void | Telephone;
 
-  gitHubName: GitHubUser;
+  gitHubUser: GitHubUser;
 
   @Input()
   createHandler: Function;
@@ -32,9 +32,7 @@ export class ContactDetailsComponent {
      this.contactService.getTelephone("123").then(number => {
         this.telephoneBis = number;
     });
-     this.gitHubService.getName("voilacti").then(name => { //pour l'instant c'est comme ca mais on peut recuperer le nom que le user a rentre
-       this.gitHubName = name;
-     });
+
   }
 
   createContact(contact: Contact) {
@@ -52,6 +50,12 @@ export class ContactDetailsComponent {
   deleteContact(contactId: String): void {
     this.contactService.deleteContact(contactId).then((deletedContactId: String) => {
       this.deleteHandler(deletedContactId);
+    });
+  }
+
+  fetchGitHubUrl(): void{
+    this.gitHubService.getName(this.contact.gitHubName).then(user => { //pour l'instant c'est comme ca mais on peut recuperer le nom que le user a rentre
+      this.gitHubUser = user;
     });
   }
 
